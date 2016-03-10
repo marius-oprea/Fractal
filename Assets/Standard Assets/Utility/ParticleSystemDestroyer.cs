@@ -36,12 +36,13 @@ namespace UnityStandardAssets.Utility
             {
                 yield return null;
             }
-            Debug.Log("stopping " + name);
 
             // turn off emission
             foreach (var system in systems)
             {
-                system.enableEmission = false;
+                var ps = system.emission;
+                ps.enabled = false;
+
             }
             BroadcastMessage("Extinguish", SendMessageOptions.DontRequireReceiver);
 

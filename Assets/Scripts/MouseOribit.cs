@@ -13,7 +13,6 @@ public class MouseOribit: MonoBehaviour
     private float yDeg;
 
     private Quaternion fromRotation;
-    private Quaternion toRotation;
 
     public float zoom;
     private Vector3 scale;
@@ -28,14 +27,6 @@ public class MouseOribit: MonoBehaviour
         {
             xDeg -= Input.GetAxis("Mouse X") * speed;// *friction; 
             yDeg += Input.GetAxis("Mouse Y") * speed;// *friction; 
-            
-            Debug.Log("axa X: " + xDeg);
-            
-            //fromRotation = transform.rotation; 
-            toRotation = Quaternion.Euler(yDeg,xDeg,0);
-
-            //transform.rotation = toRotation;
-            //transform.rotation = Quaternion.LookRotation( new Vector3(yDeg, xDeg, 0), Vector3.up);
             transform.eulerAngles = new Vector3(yDeg, xDeg, 0);
         }
         else
@@ -55,25 +46,7 @@ public class MouseOribit: MonoBehaviour
             Scale();
         }
     }
-    
-    /*
-    private void Update()
-    {
-        RaycastHit hit;
-
-        if (Input.GetMouseButton(0))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-            {
-                float x = -Input.GetAxis("Mouse X");
-                float y = -Input.GetAxis("Mouse Y");
-                float speed = 10;
-                transform.rotation *= Quaternion.AngleAxis(x * speed, Vector3.up);
-                transform.rotation *= Quaternion.AngleAxis(y * speed, Vector3.right);
-            }
-        }
-    }
-    */
+ 
     private void Scale()
     {
         scale = new Vector3(zoom, zoom, zoom);

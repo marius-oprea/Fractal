@@ -21,12 +21,6 @@ public class HUD : MonoBehaviour
         sphereButton.onValueChanged.AddListener(SphereButtonClicked);
 	}
 	
-	// Update is called once per frame
-	private void Update () 
-    {
-	
-	}
-
     public void SphereButtonClicked(bool isOn)
     {
         fractal.PrimitiveChanged("SPHERE");

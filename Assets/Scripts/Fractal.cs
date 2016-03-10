@@ -46,8 +46,6 @@ public class Fractal : MonoBehaviour
 
     private void CreateFractal()
     {
-        //gameObject.AddComponent<MeshFilter>().mesh = mesh;
-        //gameObject.AddComponent<MeshRenderer>().material = material;
         if (depth < maxDepth)
         {
             StartCoroutine(CreateChildren());
@@ -65,8 +63,7 @@ public class Fractal : MonoBehaviour
         childScale = parent.childScale;
         transform.parent = parent.transform;
         transform.localScale = Vector3.one * childScale;
-        //transform.localPosition = direction * (0.5f + 0.5f * childScale);
-        //transform.localRotation = orientation;
+
         transform.localPosition = childDirections[childIndex] * (0.5f + 0.5f * childScale);
 		transform.localRotation = childOrientations[childIndex];
 	}
@@ -105,8 +102,6 @@ public class Fractal : MonoBehaviour
             child = gameObject.transform.GetChild(i);
             child.transform.parent = null;
         }
-
-        //gameObject.GetComponent<MeshRenderer>().material = mesh;
 
         CreateFractal();
     }
